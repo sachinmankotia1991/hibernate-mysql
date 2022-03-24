@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/learning</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">admin123</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<!-- properties added to enable second level cache started -->
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- properties added to enable second level cache ended -->
+		<mapping class="learning.hibernate_mysql.Student" />
+		<mapping class="learning.hibernate_mysql.Teacher" />
+		<mapping class="learning.hibernate_mysql.mapping.Question" />
+		<mapping class="learning.hibernate_mysql.mapping.Answer" />
+		<mapping class="learning.hibernate_mysql.mapping.Category" />
+		<mapping class="learning.hibernate_mysql.mapping.Employee" />
+		<mapping class="learning.hibernate_mysql.mapping.Project" />
+		<mapping
+			resource="learning/hibernate_mysql/xmlconfigdemo/Person.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
